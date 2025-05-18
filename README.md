@@ -20,7 +20,7 @@ A [Next.js 14](https://nextjs.org/docs/14) configuration with raw authentication
 ## Features to be implemented
 
 - [x] Validation with **Zod**
-- [ ] Raw authentication with **MySQl**
+- [ ] Raw authentication using **MySQl** and **Nodemailer**
 - [ ] Newsletter subscription with **Nodemailer**
 - [ ] Admin dashboard for each role
 
