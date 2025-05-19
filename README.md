@@ -14,6 +14,7 @@ A [Next.js 14](https://nextjs.org/docs/14) configuration with raw authentication
 - **Framework:** [Next.js 14](https://nextjs.org/docs/14)
 - **Styling:** [Tailwind CSS 3](https://v3.tailwindcss.com)
 - **UI Components:** [shadcn/ui](https://ui.shadcn.com)
+- **Validation:** [Zod](https://zod.dev)
 - **Database:** [MySQL 8](https://mysql.com)
 - **Email:** [Nodemailer](https://nodemailer.com/)
 
