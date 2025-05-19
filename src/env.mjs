@@ -9,7 +9,12 @@ export const env = createEnv({
   server: {
     NODE_ENV: z
       .enum(['development', 'test', 'production'])
-      .default('development')
+      .default('development'),
+    DATABASE_HOST: z.string().min(1),
+    DATABASE_PORT: z.number(),
+    DATABASE_USERNAME: z.string().min(1),
+    DATABASE_PASSWORD: z.string().min(1),
+    DATABASE_NAME: z.string().min(1)
   },
   /**
    * Specify your client-side environment variables schema here. This way you can ensure the app
@@ -25,7 +30,12 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
-    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    DATABASE_HOST: process.env.DATABASE_HOST,
+    DATABASE_PORT: Number(process.env.DATABASE_PORT),
+    DATABASE_USERNAME: process.env.DATABASE_USERNAME,
+    DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
+    DATABASE_NAME: process.env.DATABASE_NAME
   },
   /**
    * Makes it so that empty strings are treated as undefined. `SOME_VAR: z.string()` and
