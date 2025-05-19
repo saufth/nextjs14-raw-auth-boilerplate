@@ -5,7 +5,7 @@ A [Next.js 14](https://nextjs.org/docs/14) configuration with raw authentication
 [![Next.js 14 Raw Auth Boilerplate](./public/opengraph-image.jpg)](https://nextjs14-raw-auth-boilerplate.vercel.app)
 
 > **Warning**
-> This project is only for practice and is not for production use.
+> This project is only for practice and not for production use.
 >
 > Uses non-recommended technologies (Nodemailer) that is used only for practice and is not safe for production.
 
