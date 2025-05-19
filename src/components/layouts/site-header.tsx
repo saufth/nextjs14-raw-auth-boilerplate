@@ -9,22 +9,10 @@ export function SiteHeader () {
         <SaufthLogo />
         <div className='hidden sm:flex flex-1 items-center justify-end gap-x-2'>
           <div className='flex items-center gap-x-1'>
-            <ModeToggle
-              className='animate-fade-down [&>.icon]:size-5'
-              style={{ animationDelay: '0.40s', animationFillMode: 'both' }}
-            />
+            <ModeToggle className='[&>.icon]:size-5' />
           </div>
-          <CallToAction
-            className='animate-fade-down'
-            style={{ animationDelay: '0.20s', animationFillMode: 'both' }}
-            to='signin'
-            variant='outline'
-          />
-          <CallToAction
-            className='animate-fade-down'
-            style={{ animationDelay: '0.10s', animationFillMode: 'both' }}
-            to='signup'
-          />
+          <CallToAction to='signin' variant='outline' />
+          <CallToAction to='signup' />
         </div>
         <div className='flex flex-1 sm:hidden items-center justify-end gap-x-1'>
           <ModeToggle className='[&>.icon]:size-5' />
