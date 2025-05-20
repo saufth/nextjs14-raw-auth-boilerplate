@@ -7,8 +7,7 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    NODE_ENV: z
-      .enum(['development', 'test', 'production'])
+    NODE_ENV: z.enum(['development', 'test', 'production'])
       .default('development'),
     DATABASE_HOST: z.string().min(1),
     DATABASE_PORT: z.number(),
