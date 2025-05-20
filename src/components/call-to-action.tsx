@@ -12,12 +12,12 @@ const CALL_TO_ACTIONS = [
   },
   {
     title: 'signup',
-    href: '/signup',
+    href: '#',
     icon: ChevronRightIcon
   },
   {
     title: 'signin',
-    href: '/signin',
+    href: '#',
     icon: LogInIcon
   }
 ] as const

@@ -10,8 +10,8 @@ export function SiteFooter () {
   return (
     <footer className='border-t bg-background'>
       <Shell>
-        <section className='flex items-center gap-x-4'>
-          <div className='flex-1 text-left text-sm leading-loose text-muted-foreground'>
+        <section className='flex items-center justify-between gap-x-4'>
+          <div className='text-sm text-muted-foreground'>
             Build by{' '}
             <Link
               href={siteConfig.links.twitter}
