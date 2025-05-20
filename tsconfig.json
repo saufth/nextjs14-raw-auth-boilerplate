@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     /* Base Options: */
+    "target": "es2024",
+    "moduleDetection": "force",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "target": "ES2024",
     "allowJs": true,
     "resolveJsonModule": true,
-    "moduleDetection": "force",
     "isolatedModules": true,
     /* Strictness */
     "strict": true,
@@ -16,18 +16,18 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "ES2024"
+      "es2024"
     ],
-    "noEmit": true,
-    "module": "esNext",
-    "moduleResolution": "Bundler",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "jsx": "preserve",
+    "noEmit": true,
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "incremental": true,
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
