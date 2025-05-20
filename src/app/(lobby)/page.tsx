@@ -29,7 +29,6 @@ export default function LobbyPage () {
           <Badge
             className='px-3.5 py-1.5 gap-x-2 rounded-full'
             variant='secondary'
-            aria-hidden
           >
             <GitHubIcon className='size-3.5' aria-hidden />
             GitHub Repository
