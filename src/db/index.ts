@@ -1,6 +1,6 @@
 import 'server-only'
 import { env } from '@/env.mjs'
-import { createPool } from 'mysql2'
+import { createPool } from 'mysql2/promise'
 
 export const db = createPool({
   host: env.DATABASE_HOST,

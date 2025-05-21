@@ -3,10 +3,10 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 
-CREATE SCHEMA IF NOT EXISTS `nextjs14-raw-auth-boilerplate` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `nextjs14-raw-auth-boilerplate`;
+CREATE SCHEMA IF NOT EXISTS `nextjs14-raw-auth` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `nextjs14-raw-auth`;
 
-CREATE TABLE IF NOT EXISTS `nextjs14-raw-auth-boilerplate`.`users` (
+CREATE TABLE IF NOT EXISTS `nextjs14-raw-auth`.`users` (
   `row_key` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id` BINARY(16) NOT NULL,
   `email` VARCHAR(64) NOT NULL,
@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS `nextjs14-raw-auth-boilerplate`.`users` (
   PRIMARY KEY (`row_key`),
   UNIQUE INDEX `row_key_UNIQUE` (`row_key` ASC),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
-  CONSTRAINT `chk_users-username`
-    CHECK (LENGTH(`username`) >= 4),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  CONSTRAINT `chk_users-email`
+    CHECK (LENGTH(`email`) >= 6),
   CONSTRAINT `chk_users-password`
     CHECK (LENGTH(`password`) = 60))
 ENGINE = InnoDB;
