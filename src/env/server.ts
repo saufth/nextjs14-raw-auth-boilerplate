@@ -1,3 +1,4 @@
+import 'server-only'
 import { createEnv } from '@t3-oss/env-nextjs'
 import {
   enum as zodEnum,
@@ -19,27 +20,13 @@ export const env = createEnv({
     DATABASE_PASSWORD: zodString().min(1),
     DATABASE_NAME: zodString().min(1)
   },
-  /**
-   * Specify your client-side environment variables schema here. This way you can ensure the app
-   * isn't built with invalid env vars. To expose them to the client, prefix them with
-   * `NEXT_PUBLIC_`.
-   */
-  client: {
-    NEXT_PUBLIC_APP_URL: zodString().url()
-  },
-  /**
-   * You can't destruct `process.env` as a regular object in the Next.js edge runtimes (e.g.
-   * middlewares) or client-side so we need to destruct manually.
-   */
-  runtimeEnv: {
-    NODE_ENV: process.env.NODE_ENV,
-    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
-    DATABASE_HOST: process.env.DATABASE_HOST,
-    DATABASE_PORT: Number(process.env.DATABASE_PORT),
-    DATABASE_USERNAME: process.env.DATABASE_USERNAME,
-    DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
-    DATABASE_NAME: process.env.DATABASE_NAME
-  },
+  // If you're using Next.js < 13.4.4, you'll need to specify the runtimeEnv manually
+  // runtimeEnv: {
+  //   DATABASE_URL: process.env.DATABASE_URL,
+  //   OPEN_AI_API_KEY: process.env.OPEN_AI_API_KEY,
+  // },
+  // For Next.js >= 13.4.4, you can just reference process.env:
+  experimental__runtimeEnv: process.env,
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
    * useful for Docker builds.
