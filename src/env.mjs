@@ -1,5 +1,9 @@
 import { createEnv } from '@t3-oss/env-nextjs'
-import { z } from 'zod'
+import {
+  enum as zodEnum,
+  number as zodNumber,
+  string as zodString
+} from 'zod'
 
 export const env = createEnv({
   /**
@@ -7,13 +11,13 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    NODE_ENV: z.enum(['development', 'test', 'production'])
+    NODE_ENV: zodEnum(['development', 'test', 'production'])
       .default('development'),
-    DATABASE_HOST: z.string().min(1),
-    DATABASE_PORT: z.number(),
-    DATABASE_USERNAME: z.string().min(1),
-    DATABASE_PASSWORD: z.string().min(1),
-    DATABASE_NAME: z.string().min(1)
+    DATABASE_HOST: zodString().min(1),
+    DATABASE_PORT: zodNumber(),
+    DATABASE_USERNAME: zodString().min(1),
+    DATABASE_PASSWORD: zodString().min(1),
+    DATABASE_NAME: zodString().min(1)
   },
   /**
    * Specify your client-side environment variables schema here. This way you can ensure the app
@@ -21,7 +25,7 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    NEXT_PUBLIC_APP_URL: z.string().url()
+    NEXT_PUBLIC_APP_URL: zodString().url()
   },
   /**
    * You can't destruct `process.env` as a regular object in the Next.js edge runtimes (e.g.

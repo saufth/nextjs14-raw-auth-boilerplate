@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
-import { SaufthIcon, type IconProps } from '@/components/icons'
+import { SaufthIcon } from '@/components/icons'
 
 const logotypeVariants = cva(
   'leading-none',
@@ -44,13 +44,13 @@ export function Logotype ({ className, variant, size }: LogotypeProps) {
   )
 }
 
-export function SaufthLogo ({ className, ...props }: IconProps) {
+export function SaufthLogo ({ className }: { className?: string }) {
   return (
-    <Link href='/'>
-      <SaufthIcon
-        className={cn('size-8', className)}
-        {...props}
-      />
+    <Link
+      href='/'
+      className={cn('h-8', className)}
+    >
+      <SaufthIcon className='w-auto h-full' />
       <div className='sr-only'>Saufth</div>
     </Link>
   )
