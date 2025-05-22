@@ -1,5 +1,5 @@
 import { type Metadata, type Viewport } from 'next'
-import { env } from '@/env.mjs'
+import { env } from '@/env.js'
 import type { LayoutProps } from '@/types'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'

@@ -1,6 +1,6 @@
 import type { Author } from 'next/dist/lib/metadata/types/metadata-types'
 import type { FooterItem, MainNavItem } from '@/types'
-import { env } from '@/env.mjs'
+import { env } from '@/env.js'
 
 const links = {
   twitter: 'https://x.com/saufth',

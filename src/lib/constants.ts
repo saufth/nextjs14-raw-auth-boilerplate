@@ -1,4 +1,4 @@
-import { env } from '@/env.mjs'
+import { env } from '@/env.js'
 
 export const IS_ENV_PRODUCTION = env.NODE_ENV === 'production'
 
