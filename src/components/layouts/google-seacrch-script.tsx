@@ -1,9 +1,10 @@
 import Script from 'next/script'
 import { absoluteUrl } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
+import type { Graph } from 'schema-dts'
 
-const SEARCH_SCHEME = {
-  '@context': 'https://schema.org/',
+const SEARCH_SCHEME: Graph = {
+  '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Organization',
@@ -36,17 +37,13 @@ const SEARCH_SCHEME = {
   ]
 } as const
 
-const addWebsiteJsonId = () => {
-  return {
-    __html: JSON.stringify(SEARCH_SCHEME)
-  }
-}
-
 export default function GoogleSearchScript () {
   return (
     <Script
       type='application/ld+json'
-      dangerouslySetInnerHTML={addWebsiteJsonId()}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(SEARCH_SCHEME)
+      }}
       id='WebSite'
     />
   )

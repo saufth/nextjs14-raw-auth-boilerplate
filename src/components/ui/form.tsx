@@ -47,7 +47,7 @@ const FormField = <
   )
 }
 
-const useFormField = () => {
+function useFormField () {
   const fieldContext = useContext(FormFieldContext)
   const itemContext = useContext(FormItemContext)
   const { getFieldState, formState } = useFormContext()

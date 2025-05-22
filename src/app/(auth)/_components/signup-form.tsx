@@ -20,6 +20,7 @@ import {
   signupSchema,
   type SignupInputs
 } from '@/lib/validations/auth'
+import { LoaderCircleIcon } from 'lucide-react'
 
 export default function SignupForm () {
   // const router = useRouter()
@@ -33,26 +34,28 @@ export default function SignupForm () {
     }
   })
 
-  const onSubmit = (inputs: SignupInputs) => {
+  function onSubmit (inputs: SignupInputs) {
     startTransition(async () => {
       toast.message('Registrando..')
       // const response = await signup(inputs)
 
       // if (response.error) {
-      //   toast.error(response.error)
+      //   showErrorToast(err)
       //   return
       // }
 
-      toast.success(`¡${inputs.email} registro exitoso!`)
-      form.reset()
-      // router.push(`/signup/verify-email/${response.data!.id}`)
+      console.log(inputs.email)
+      toast.message('Check your email', {
+        description: 'We sent you a 6-digit verification code.'
+      })
+      // router.push(`/signup/verify-email`)
     })
   }
 
   return (
     <Form {...form}>
       <form
-        className='space-y-6'
+        className='grid gap-y-4'
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <FormField
@@ -85,10 +88,17 @@ export default function SignupForm () {
           )}
         />
         <Button
-          className='w-full lg:w-full flex items-center gap-x-2'
+          className='mt-2'
           disabled={isTransition}
         >
-          Sign up
+          {isTransition && (
+            <LoaderCircleIcon
+              className='size-4 animate-in spin-in-[360deg] direction-reverse duration-1000 ease-linear repeat-infinite'
+              aria-hidden='true'
+            />
+          )}
+          Continue
+          <span className='sr-only'>Continue to email verification page</span>
         </Button>
       </form>
     </Form>
