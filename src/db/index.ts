@@ -1,5 +1,5 @@
 import 'server-only'
-import { env } from '@/env.js'
+import { env } from '@/env'
 import {
   createPool,
   type PoolOptions

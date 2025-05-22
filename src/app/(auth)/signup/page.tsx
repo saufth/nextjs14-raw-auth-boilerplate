@@ -1,6 +1,6 @@
 import { type Metadata } from 'next'
 import Link from 'next/link'
-import { env } from '@/env.js'
+import { env } from '@/env'
 import {
   Card,
   CardContent,
