@@ -1,4 +1,3 @@
-import 'server-only'
 import { createEnv } from '@t3-oss/env-nextjs'
 import {
   enum as zodEnum,
@@ -26,7 +25,10 @@ export const env = createEnv({
   //   OPEN_AI_API_KEY: process.env.OPEN_AI_API_KEY,
   // },
   // For Next.js >= 13.4.4, you can just reference process.env:
-  experimental__runtimeEnv: process.env,
+  experimental__runtimeEnv: {
+    ...process.env,
+    DATABASE_PORT: Number(process.env.DATABASE_PORT)
+  },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
    * useful for Docker builds.
