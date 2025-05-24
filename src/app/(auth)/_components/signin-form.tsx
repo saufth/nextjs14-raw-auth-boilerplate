@@ -2,7 +2,6 @@
 import { useTransition } from 'react'
 // import { useRouter } from 'next/navigation'
 import { LoaderCircleIcon } from 'lucide-react'
-import { toast } from 'sonner'
 // import { signup } from '@/lib/actions/user'
 import {
   signupSchema,
@@ -22,7 +21,7 @@ import {
 } from '@/components/ui/form'
 import { PasswordInput } from '@/components/password-input'
 
-export default function SignupForm () {
+export default function SigninForm () {
   const [isTransition, startTransition] = useTransition()
   // const router = useRouter()
 
@@ -36,18 +35,21 @@ export default function SignupForm () {
 
   function onSubmit (inputs: SignupInputs) {
     startTransition(async () => {
-      // const response = await signup(inputs)
+      // const response = await signin(input)
 
       // if (response.error) {
       //   showErrorToast(err)
       //   return
       // }
 
+      // if (response.error === accountStatus.unverified) {
+      //   toast.error('Ingresa el código enviado a tu correo electrónico')
+      //   router.push(`/signup/verify-email/${response.data.id}`)
+      //   return
+      // }
+
       console.log(inputs.email)
-      toast.message('Check your email', {
-        description: 'We sent you a 6-digit verification code.'
-      })
-      // router.push(`/signup/verify-email`)
+      // router.push('/dashboard')
     })
   }
 
@@ -88,8 +90,8 @@ export default function SignupForm () {
         />
         <Button
           className='mt-2'
-          disabled={isTransition}
           type='submit'
+          disabled={isTransition}
         >
           {isTransition && (
             <LoaderCircleIcon
@@ -97,7 +99,7 @@ export default function SignupForm () {
               aria-hidden='true'
             />
           )}
-          Continue <span className='sr-only'>to email verification page</span>
+          Sign in
         </Button>
       </form>
     </Form>
